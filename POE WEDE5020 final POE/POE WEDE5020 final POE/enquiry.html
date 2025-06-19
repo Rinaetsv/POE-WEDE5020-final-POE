@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enquiry | GreenSteps</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .team  img{
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo/Green_and_White_Flat_Illustrative_Feeding_Plant_Agriculture_Logo-removebg-preview.png" alt="GreenSteps Logo" style="width: 100px;height: 100px;">
+            <h1>GreenSteps</h1>
+        </div>
+        <nav class="navbar">
+                
+            <ul>
+                <li> <a href="index.html" > HOME</a> </li>
+                <li><a href="about.html">ABOUT US</a></li>
+                 <li> <a href="services.html">SERVICES</a> </li>
+                <li>   <a class="active"href="enquiry.html">ENQUIRY</a></li>
+                <li> <a href="contact.html">CONTACT US</a></li>
+            </ul>
+
+         </nav>
+       
+       
+       
+    </header>
+
+    <main>
+        <h2>Service Enquiry</h2>
+        <form name="enquiryForm" onsubmit="return validateEnquiryForm();">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+
+            <label for="role">I’m interested in:</label><br>
+            <select id="role" name="role">
+                <option value="volunteer">Becoming a Volunteer</option>
+                <option value="sponsor">Becoming a Sponsor</option>
+            </select><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5"></textarea><br><br>
+
+            <input type="submit" value="Send Enquiry">
+        </form>
+        <p id="enquiry-success" style="color: green; font-weight: bold;"></p>
+    </main>
+    <footer>
+        <p>&copy; <span id="year"></span> GreenSteps. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateEnquiryForm() {
+          const name = document.forms["enquiryForm"]["name"].value.trim();
+          const email = document.forms["enquiryForm"]["email"].value.trim();
+          const role = document.forms["enquiryForm"]["role"].value;
+          const message = document.forms["enquiryForm"]["message"].value.trim();
+      
+          if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return false;
+          }
+      
+          if (!email.includes("@") || !email.includes(".")) {
+            alert("Please enter a valid email address.");
+            return false;
+          }
+      
+          if (role !== "Volunteer" && role !== "Sponsor") {
+            alert("Please select a valid role.");
+            return false;
+          }
+      
+          alert("Thank you for your enquiry!");
+          return true;
+        }
+    document.getElementById("enquiry-success").textContent = "Form submitted successfully!";
+    
+    document.forms["enquiryForm"].reset();
+
+    return false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const year = document.getElementById('year');
+          if (year) year.textContent = new Date().getFullYear();
+        });
+      </script>      
+</body>
+</html>

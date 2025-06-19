@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services | GreenSteps</title>
+    <link rel="stylesheet" href="style.css">
+
+        <style>
+            .team  img{
+                text-align: center;
+            }
+            .team{
+                text-align: left;
+            }
+        </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo/Green_and_White_Flat_Illustrative_Feeding_Plant_Agriculture_Logo-removebg-preview.png" alt="GreenSteps Logo" style="width: 100px;height: 100px;">
+            <h1>GreenSteps</h1>
+        </div>
+        
+        <nav class="navbar">
+            <ul>
+           <li>  <a href="index.html" > HOME</a></li>
+           <li ><a href="about.html">ABOUT US</a></li>
+           <li ><a class="active"  href="services.html">SERVICES</a></li>
+            <li><a href="enquiry.html">ENQUIRY</a></li>
+           <li ><a href="contact.html">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Our Services</h2>
+      
+        <div class="service-header">♻️ Clean-Up Projects</div>
+        <div class="service-content">
+          We organize regular community clean-up events in parks, beaches, and streets to promote environmental awareness and reduce pollution.
+        </div>
+      
+        <div class="service-header">🌱 Tree Planting Campaigns</div>
+        <div class="service-content">
+          Join our seasonal tree-planting drives to help restore local ecosystems and fight climate change.
+        </div>
+      
+        <div class="service-header">📚 Environmental Education</div>
+        <div class="service-content">
+          We conduct workshops, school visits, and campaigns to educate young people and adults on sustainable living practices.
+        </div>
+      </main>
+    <footer>
+        <p>&copy; <span id="year"></span> GreenSteps. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const headers = document.querySelectorAll('.service-header');
+      
+          headers.forEach(header => {
+            header.addEventListener('click', () => {
+              const content = header.nextElementSibling;
+      
+              document.querySelectorAll('.service-content').forEach(div => {
+                if (div !== content) {
+                  div.style.maxHeight = null;
+                }
+              });
+      
+              if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+              } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+              }
+            });
+          });
+      
+          const year = document.getElementById("year");
+          if (year) year.textContent = new Date().getFullYear();
+        });
+      </script>
+      
+</body>
+</html>
